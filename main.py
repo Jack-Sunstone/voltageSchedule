@@ -19,13 +19,13 @@ def callTime():
 
         # Defining login details to access Sites
         login_url = 'https://vrmapi.victronenergy.com/v2/auth/login'
-        login_string = '{"username":"support@sunstone-systems.com","password":"12Security34!"}'
+        login_string = '{"username":"","password":""}'
         # Stores and loads Json request to the login URL
         response = requests.post(login_url, login_string)
         token = json.loads(response.text).get("token")
         headers = {"X-Authorization": 'Bearer ' + token}
 
-        unitIDS = {202554:"ARC0063", 276976:"ARC0102"}
+        unitIDS = {}
 
         for i in unitIDS:
 
@@ -37,7 +37,7 @@ def callTime():
 
             mail = outlook.CreateItem(0)
 
-            mail.To = "russell@sunstone-systems.com"
+            mail.To = ""
             mail.Subject = "{} Battery Volatage".format(unitIDS.get(i))
             mail.Body = "{}".format(float(batteryVoltage))
 
