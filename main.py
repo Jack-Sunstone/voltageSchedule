@@ -37,7 +37,7 @@ def callTime():
 
             mail = outlook.CreateItem(0)
 
-            mail.To = "jack@sunstone-systems.com"
+            mail.To = "russell@sunstone-systems.com"
             mail.Subject = "{} Battery Volatage".format(unitIDS.get(i))
             mail.Body = "{}".format(float(batteryVoltage))
 
